@@ -1,4 +1,6 @@
-package com.test;
+package com.test.jpmsdoobry;
+
+import com.test.jpmshi.HiModules;
 
 import static javax.xml.XMLConstants.XML_NS_PREFIX;
 
@@ -19,6 +21,7 @@ public class Doobry {
         String adj = args.length > 0 ? (" " + args[0]) : "";
         System.out.println(leftPad("Hello," + adj + " world!", 90));
         System.out.println("The XML namespace prefix is: " + XML_NS_PREFIX);
-
+        HiModules hiModules = new HiModules();
+        System.out.println(hiModules.getHi());
     }
 }

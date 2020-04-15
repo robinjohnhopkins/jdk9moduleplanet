@@ -29,8 +29,32 @@ https://www.youtube.com/watch?v=C5yX-elG4w0
 run:
 
 ```
-java --module-path jpmshello/target/jpmshello-1.0-SNAPSHOT.jar --module com.test.jdk9moduleplanet/com.test.Doobry wide
+java --module-path jpmshello/target/jpmshello-1.0-SNAPSHOT.jar --module com.test.jdk9moduleplanet/com.test.jpmshi.Doobry wide
                                                                         Hello, wide world!
 The XML namespace prefix is: xml
 ```
 
+
+### maven-compiler-plugin 3.7.0 fails for modules
+
+IN THEORY You need at least version 3.7.0 of the Maven compiler plugin to properly handle modules
+
+IN PRACTICE I needed to specify 3.6.2!
+
+```
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.2</version><!-- NB 3.7.0 errored here! -->
+```
+
+### Add second module
+
+After adding second module and 
+
+```
+java --module-path jpmshello/target/jpmshello-1.0-SNAPSHOT.jar:jpmshi/target/jpmshi-1.0-SNAPSHOT.jar --module com.test.jdk9moduleplanet/com.test.jpmsdoobry.Doobry wide
+                                                                        Hello, wide world!
+The XML namespace prefix is: xml
+Hi Modules!
+```
