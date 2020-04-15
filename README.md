@@ -215,6 +215,8 @@ In this post the module directives were explained and used in several examples.
 
 ### POST ADDITION
 
+https://github.com/robinjohnhopkins/jdk9moduleplanet/tree/master/jdk9workshop
+
 jdk9workshop/README.md
 
 contains additional jdk 9 modules work done prior to this one 
