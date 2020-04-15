@@ -23,7 +23,14 @@
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
+        <!-- interestingly this dependency is not needed in pom
+             the service is only picked up by the module being on a module-path -->
+        <!--<dependency>-->
+            <!--<groupId>com.test</groupId>-->
+            <!--<artifactId>serviceprovider2</artifactId>-->
+            <!--<version>1.0-SNAPSHOT</version>-->
+            <!--<scope>compile</scope>-->
+        <!--</dependency>-->
     </dependencies>
-
 
 </project>

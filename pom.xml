@@ -27,5 +27,6 @@
         <module>jpmshello</module>
         <module>serviceproviderinterface</module>
         <module>serviceprovider1</module>
+        <module>serviceprovider2</module>
     </modules>
 </project>

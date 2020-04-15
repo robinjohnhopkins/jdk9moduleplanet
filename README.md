@@ -175,3 +175,39 @@ This is Service Provider 1
 
 
 
+### Add second Service Provider
+
+To conclude with, we add a second Service Provider ServiceProvider2 
+identical to ServiceProvider1. The only thing we will change, is to 
+make the module-info.java of ServiceProvider2 a bit more readable by 
+using import statements.
+
+workspace/jdk9moduleplanet/serviceproviderinterface/src/main/java/module-info.java
+```
+import com.test.serviceproviderinterface.spi.ServiceProviderInterface;
+import com.test.serviceprovider2.ServiceProvider2;
+
+module serviceprovider2 {
+    requires serviceproviderinterface;
+    provides ServiceProviderInterface with ServiceProvider2;
+}
+```
+
+run - IMPORTANT - the only way the second provider is picked up
+is by ADDING to --module-path in following invocation.
+It is NOT NEEDED as a dependency of Doobry POM!
+i.e. The service implementation is picked up and used purely through interface
+```
+java --module-path jpmshello/target/jpmshello-1.0-SNAPSHOT.jar:jpmshi/target/jpmshi-1.0-SNAPSHOT.jar:./serviceproviderinterface/target/serviceproviderinterface-1.0-SNAPSHOT.jar:./serviceprovider1/target/serviceprovider1-1.0-SNAPSHOT.jar:./serviceprovider2/target/serviceprovider2-1.0-SNAPSHOT.jar  --module com.test.jdk9moduleplanet/com.test.jpmsdoobry.Doobry wide
+                                                                        Hello, wide world!
+The XML namespace prefix is: xml
+Hi Modules!
+Hi Modules!
+public java.lang.String com.test.jpmshi.HiModules.getHi() is method: getHi
+Hi Opens Directive!
+This is Service Provider 2
+This is Service Provider 1
+```
+
+### Summary
+In this post the module directives were explained and used in several examples.
