@@ -223,3 +223,69 @@ contains additional jdk 9 modules work done prior to this one
 with some additional cool stuff like creating small
 java deployments with only specific modules included
 - AWESOME for docker and cloud deployments!
+
+
+## JDK 9 ProcessHandle identifies and provides control of native processes.
+
+### start process and kill it
+
+```
+java -cp ./process-api-httpclient/target/process-api-httpclient-1.0-SNAPSHOT.jar com/process/api/KillChildProcess
+KillChildProcess demo - Press enter to continue [user: Optional[<name>], cmd: /bin/bash, args: [-c, while true; do sleep 1; done], startTime: Optional[2020-04-15T11:37:40.978Z]]
+
+Killing process
+Press enter to finish
+Process 94301 was killed
+```
+
+
+### search all processes for a string param and kill matches - java pkill
+
+```
+java -cp ./process-api-httpclient/target/process-api-httpclient-1.0-SNAPSHOT.jar com/process/api/KillOtherProcess Meld
+searching process to kill containing Meld
+[user: Optional[robinjohnhopkins], cmd: /Applications/Meld.app/Contents/MacOS/Meld, startTime: Optional[2020-04-15T12:08:23.073Z]]
+Meld was killed by Java!
+Shutdown: true
+```
+
+### list processes
+
+```
+java -cp ./process-api-httpclient/target/process-api-httpclient-1.0-SNAPSHOT.jar com/process/api/ListProcesses
+Started at: 2020-04-02T08:09:15.414Z, Command: /System/Library/CoreServices/loginwindow.app/Contents/MacOS/loginwindow
+Started at: 2020-04-02T08:09:42.125Z, Command: /System/Library/Frameworks/LocalAuthentication.framework/Support/coreauthd
+Started at: 2020-04-02T08:09:42.142Z, Command: /usr/sbin/cfprefsd
+Started at: 2020-04-02T08:09:42.430Z, Command: /usr/libexec/UserEventAgent
+```
+
+### new way to access process info - parent pid, this pid
+java -cp ./process-api-httpclient/target/process-api-httpclient-1.0-SNAPSHOT.jar com/process/api/ProcessId
+{ pidOld: 15085, pidNew: 15085 }
+parentPid (IDE): 54518
+
+### jdk.incubator.httpclient - forget this - see java 11
+https://docs.oracle.com/en/java/javase/11/docs/api/java.net.http/java/net/http/HttpClient.html
+
+### stack walker 
+
+```
+java -cp ./process-api-httpclient/target/process-api-httpclient-1.0-SNAPSHOT.jar com/stack/StackWalkerDemo
+com.stack.StackWalkerDemo.method4(StackWalkerDemo.java:27)
+com.stack.StackWalkerDemo.method3(StackWalkerDemo.java:21)
+com.stack.StackWalkerDemo.method2(StackWalkerDemo.java:17)
+com.stack.StackWalkerDemo.method1(StackWalkerDemo.java:13)
+com.stack.StackWalkerDemo.main(StackWalkerDemo.java:9)
+29
+21
+17
+13
+9
+```
+
+### other demos
+
+```
+java -cp ./process-api-httpclient/target/process-api-httpclient-1.0-SNAPSHOT.jar com/langandlib/Testrun
+```
+

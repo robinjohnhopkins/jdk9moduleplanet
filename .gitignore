@@ -1,3 +1,6 @@
+.DS_Store
+java-9-whats-new
+
 .idea/
 *.iml
 target
