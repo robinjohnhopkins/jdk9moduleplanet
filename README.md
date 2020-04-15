@@ -211,3 +211,13 @@ This is Service Provider 1
 
 ### Summary
 In this post the module directives were explained and used in several examples.
+
+
+### POST ADDITION
+
+jdk9workshop/README.md
+
+contains additional jdk 9 modules work done prior to this one 
+with some additional cool stuff like creating small
+java deployments with only specific modules included
+- AWESOME for docker and cloud deployments.
