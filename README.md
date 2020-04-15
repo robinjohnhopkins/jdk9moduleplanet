@@ -220,4 +220,4 @@ jdk9workshop/README.md
 contains additional jdk 9 modules work done prior to this one 
 with some additional cool stuff like creating small
 java deployments with only specific modules included
-- AWESOME for docker and cloud deployments.
+- AWESOME for docker and cloud deployments!
