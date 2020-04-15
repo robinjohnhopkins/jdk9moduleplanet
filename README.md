@@ -26,3 +26,11 @@ https://www.youtube.com/watch?v=C5yX-elG4w0
 
 (which I might move into this git to have it in one place later)
 
+run:
+
+```
+java --module-path jpmshello/target/jpmshello-1.0-SNAPSHOT.jar --module com.test.jdk9moduleplanet/com.test.Doobry wide
+                                                                        Hello, wide world!
+The XML namespace prefix is: xml
+```
+
