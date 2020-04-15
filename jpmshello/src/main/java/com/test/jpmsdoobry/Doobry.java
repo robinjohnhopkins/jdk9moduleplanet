@@ -1,6 +1,7 @@
 package com.test.jpmsdoobry;
 
 import com.test.jpmshi.HiModules;
+import com.test.serviceproviderinterface.Service;
 
 import java.lang.reflect.Method;
 
@@ -32,6 +33,10 @@ public class Doobry {
             System.err.println(e);
         }
     }
+    private static void checkProvidesWith() {
+        Service service = Service.getInstance();
+        service.printServiceNames();
+    }
     //Originally - here - moved into separate module
     //
      private static String leftPad(String s, int w) {
@@ -51,5 +56,6 @@ public class Doobry {
         System.out.println(hiModules.getHi());
         checkExportsDirectiveWithReflection();
         checkOpensDirectiveWithReflection();
+        checkProvidesWith();
     }
 }

@@ -9,17 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>jpmshello</artifactId>
+    <artifactId>serviceprovider1</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.test</groupId>
-            <artifactId>jpmshi</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.test</groupId>
-            <artifactId>serviceprovider1</artifactId>
+            <artifactId>serviceproviderinterface</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

@@ -116,3 +116,62 @@ public java.lang.String com.test.jpmshi.HiModules.getHi() is method: getHi
 Hi Opens Directive!
 ```
 
+#### provides…with
+The provides…with directive indicates that a module provides a service implementation. 
+The module is therefore a service provider. After the provides part, the interface or 
+abstract class is listed, after the with part, the implementation class is listed.
+
+Before continue reading this paragraph, it is a good thing to revise the concept of services.
+
+articles:
+
+Java 9 Module Services
+https://dzone.com/articles/java-9-module-services
+
+The Oracle Java trail: The extension mechanism
+https://docs.oracle.com/javase/tutorial/ext/index.html
+
+
+### Create the Service Provider Interface
+
+
+workspace/jdk9moduleplanet/serviceprovider1/src/main/java/module-info.java
+```
+module serviceprovider1 {
+    requires serviceproviderinterface;
+    provides com.test.serviceproviderinterface.spi.ServiceProviderInterface with com.test.serviceprovider1.ServiceProvider1;
+}
+```
+
+workspace/jdk9moduleplanet/serviceproviderinterface/src/main/java/module-info.java
+```
+module serviceproviderinterface {
+    exports com.test.serviceproviderinterface.spi;
+    exports com.test.serviceproviderinterface;
+    uses com.test.serviceproviderinterface.spi.ServiceProviderInterface;
+}
+```
+
+workspace/jdk9moduleplanet/jpmshello/src/main/java/module-info.java
+```
+module com.test.jdk9moduleplanet {
+    requires java.xml;
+    requires jpmshi;
+    requires serviceproviderinterface;
+}
+```
+
+run
+```
+java --module-path jpmshello/target/jpmshello-1.0-SNAPSHOT.jar:jpmshi/target/jpmshi-1.0-SNAPSHOT.jar:./serviceproviderinterface/target/serviceproviderinterface-1.0-SNAPSHOT.jar:./serviceprovider1/target/serviceprovider1-1.0-SNAPSHOT.jar --module com.test.jdk9moduleplanet/com.test.jpmsdoobry.Doobry wide
+                                                                        Hello, wide world!
+The XML namespace prefix is: xml
+Hi Modules!
+Hi Modules!
+public java.lang.String com.test.jpmshi.HiModules.getHi() is method: getHi
+Hi Opens Directive!
+This is Service Provider 1
+```
+
+
+
